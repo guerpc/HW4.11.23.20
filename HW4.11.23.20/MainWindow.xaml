@@ -1,0 +1,31 @@
+﻿<Window x:Class="HW4._11._23._20.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HW4._11._23._20"
+        mc:Ignorable="d"
+        Title="Hwk4-PublisherGUI-v2" Height="450" Width="800" Loaded="Window_Loaded">
+    <Grid>
+        <Label Content="Books" HorizontalAlignment="Left" Margin="10,48,0,0" VerticalAlignment="Top"/>
+        <Label Content="Id" HorizontalAlignment="Left" Margin="407,79,0,0" VerticalAlignment="Top" Width="41"/>
+        <Label Content="Title" HorizontalAlignment="Left" Margin="407,132,0,0" VerticalAlignment="Top" Width="36"/>
+        <Label Content="Price" HorizontalAlignment="Left" Margin="407,179,0,0" VerticalAlignment="Top" Width="41"/>
+        <TextBox x:Name="textBoxId" Margin="448,79,10,0" TextWrapping="Wrap" Text="{Binding SelectedItem.Id, ElementName=listBoxTitle}" VerticalAlignment="Top" ToolTip="Selected Book's ID" IsReadOnly="True"/>
+        <TextBox x:Name="textBoxTitle" Margin="448,135,10,0" TextWrapping="Wrap" Text="{Binding SelectedItem.Title, ElementName=listBoxTitle}" VerticalAlignment="Top" IsReadOnly="True" ToolTip="Selected Book's Title"/>
+        <TextBox x:Name="textBoxPrice" Margin="448,183,10,0" TextWrapping="Wrap" Text="{Binding SelectedItem.Price, ElementName=listBoxTitle}" VerticalAlignment="Top" ToolTip="Selected Book's Price" IsReadOnly="True"/>
+        <Menu VerticalAlignment="Top">
+            <MenuItem Header="File">
+                <MenuItem Header="Exit"/>
+            </MenuItem>
+            <MenuItem Header="Import" Click="MenuItem_Click">
+                <MenuItem Header="Publisher From Json..."/>
+            </MenuItem>
+            <MenuItem Header="Help">
+                <MenuItem Header="About..."/>
+            </MenuItem>
+        </Menu>
+        <ListBox x:Name="listBoxTitle" HorizontalAlignment="Left" Height="330" Margin="10,79,0,0" Width="392" ItemsSource="{Binding Mode=OneWay}" DisplayMemberPath="Title" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
